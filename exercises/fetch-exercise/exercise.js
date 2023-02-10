@@ -1,7 +1,7 @@
 /*
 Use fetch to load a greeting from the API and display it 
 in the HTML element with the id "greeting-text".
-
+API: "https://holy-snow-6805.fly.dev/api/greetings" or
 API: https://codeyourfuture.herokuapp.com/api/greetings
 Response: A greeting in a random language
 
@@ -17,10 +17,15 @@ Open index.html in your browser. Every time you refresh the page,
 a different greeting should be displayed in the box.
 */
 
-fetch("*** Write the API address here ***")
-  .then(function (response) {
-    return response.text();
-  })
-  .then(function (greeting) {
-    // Write the code to display the greeting text here
-  });
+
+
+  fetch("https://holy-snow-6805.fly.dev/api/greetings")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (greetingHello) {
+      let greeting = document.getElementById("greeting-text");
+      console.log(greetingHello);
+      greeting.innerText = 
+      `Language: ${greetingHello.language} Hello is: ${greetingHello.hello}`;
+    });
